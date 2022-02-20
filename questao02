@@ -1,0 +1,37 @@
+'''Débora se inscreveu em uma rede social para se manter em contato com seus amigos.
+A página de cadastro exigia o preenchimento dos campos de nome e senha, porém a senha precisa ser forte.
+O site considera uma senha forte quando ela satisfaz os seguintes critérios:
+Possui no mínimo 6 caracteres.
+Contém no mínimo 1 digito.
+Contém no mínimo 1 letra em minúsculo.
+Contém no mínimo 1 letra em maiúsculo.
+Contém no mínimo 1 caractere especial. Os caracteres especiais são: !@#$%^&*()-+'''
+
+import re
+
+count = 0
+while True:
+    senha = str(input('Digite uma senha: '))
+    if len(senha) < 6:
+        if len(senha) == 1:
+            print(f'Você digitou somente {len(senha)} caracter, sua senha precisa ter no mínimo 6 caracteres ... ')
+        else:
+            print(f'Você digitou {len(senha)} caracteres, sua senha precisa ter no mínimo 6 caracteres ... ')
+    elif not re.search('[a-z]', senha):
+        count = 1
+        print("Senha muito fraca, tente novamente...")
+    elif not re.search('[A-Z]', senha):
+        count = 1
+        print("Senha muito fraca, tente novamente...")
+    elif not re.search('[0-9]', senha):
+        count = 1
+        print("Senha muito fraca, tente novamente...")
+    elif not re.search('[!@#$%^&*()-+]', senha):
+        count = 1
+        print("Senha muito fraca, tente novamente...")
+    elif re.search('\s', senha):
+        count = 1
+        print('Senha muito fraca, tente novamente...')
+    else:
+        print('Sua senha é forte, pode usar essa senha...')
+        break
