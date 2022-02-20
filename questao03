@@ -1,0 +1,6 @@
+from maagnar import permutations
+
+palavra = str(input('Digite a palavra: '))
+print(palavra.split())
+for anagram in permutations(palavra):
+    print(anagram)
